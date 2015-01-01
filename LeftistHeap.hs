@@ -23,9 +23,11 @@ module LeftistHeap where
     | otherwise        = T (rank a+1) x b a
 
   instance Heap LeftistHeap where
+    -- empty: constructs an empty heap
 --  empty :: (Heap h, Ord a) => h a
     empty = Empty
 
+    -- isEmpty: checks if the heap is empty
 --  isEmpty   :: (Heap h, Ord a) => h a -> Bool
     isEmpty Empty = True
     isEmpty _     = False
