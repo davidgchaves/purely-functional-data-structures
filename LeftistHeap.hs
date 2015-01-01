@@ -1,16 +1,16 @@
 module LeftistHeap where
--- Leftist heaps
---  heap-ordered binary trees that satisfy the leftist property:
---  "the rank of any left child is at least as large
---   as the rank of its right sibling"
+-- Leftist heaps - heap-ordered binary trees that satisfy the leftist property:
+--                 "the rank of any left child is at least as large
+--                  as the rank of its right sibling"
+-- The rank of a node: the length of its right spine
+--                     (the rightmost path from the node to an empty node)
 
   import Heap
 
   data LeftistHeap a = Empty
                      | T Int a (LeftistHeap a) (LeftistHeap a)
 
-  -- The rank of a node is defined to be the length of its right spine
-  -- (the rightmost path from the node in question to an empty node)
+  -- rank: calculates the rank of a heap
   rank             :: LeftistHeap lh -> Int
   rank Empty       = 0
   rank (T r _ _ _) = r
